@@ -211,6 +211,10 @@
             color: white;
         }
         
+        .contact-item span {
+            color: white; /* Explicitly set to white */
+        }
+        
         .contact-item i {
             margin-right: 10px;
         }
@@ -623,6 +627,11 @@
             
             .mobile-menu-btn {
                 display: block; /* Show mobile menu button */
+                order: -1; /* Move to the left */
+            }
+            
+            .logo {
+                padding-right: 30px; /* Add padding to the right of the name */
             }
             
             nav {
@@ -731,6 +740,11 @@
                 width: 100%;
             }
             
+            .contact-item span,
+            .contact-item a {
+                color: white !important; /* Force white color for phone numbers in mobile */
+            }
+            
             nav ul li a {
                 font-size: 0.9rem; /* Smaller font size */
                 padding: 5px 8px; /* Add padding around links */
@@ -775,6 +789,9 @@
     </style>
 </head>
 <body>
+    <!-- Rest of the HTML remains the same -->
+</body>
+</html>
     <!-- Header -->
     <header>
         <div class="container nav-container">
