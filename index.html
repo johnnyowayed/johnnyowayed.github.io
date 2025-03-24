@@ -203,6 +203,15 @@
             margin-right: 10px;
         }
         
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+        
         /* About Section */
         .section {
             padding: 80px 0;
@@ -593,6 +602,7 @@
             
             .contact-info {
                 justify-content: center;
+                flex-wrap: wrap;
             }
         }
         
@@ -605,6 +615,8 @@
             nav ul {
                 margin-top: 20px;
                 gap: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
             }
             
             .hero h1 {
@@ -671,6 +683,38 @@
                 width: 150px;
                 height: 150px;
             }
+            
+            /* Fix for contact info on very small screens */
+            .contact-info {
+                width: 100%;
+            }
+            
+            .contact-item {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+        
+        /* Hamburger menu for mobile */
+        .mobile-menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            nav ul {
+                display: none;
+                width: 100%;
+            }
+            
+            nav.active ul {
+                display: flex;
+            }
         }
     </style>
 </head>
@@ -679,7 +723,7 @@
     <header>
         <div class="container nav-container">
             <div class="logo">Johnny Owayed</div>
-            <nav>
+            <nav id="mainNav">
                 <ul>
                     <li><a href="#about">About</a></li>
                     <li><a href="#projects">Projects</a></li>
@@ -688,6 +732,9 @@
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
+            <div class="mobile-menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
         </div>
     </header>
 
@@ -704,15 +751,15 @@
                 <div class="contact-info">
                     <div class="contact-item">
                         <i class="fas fa-phone"></i>
-                        <span>+961 71 213 231</span>
+                        <a href="tel:+96171213231">+961 71 213 231</a>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
-                        <span>johnny.owayed@gmail.com</span>
+                        <a href="mailto:johnny.owayed@gmail.com">johnny.owayed@gmail.com</a>
                     </div>
                     <div class="contact-item">
                         <i class="fab fa-linkedin"></i>
-                        <a href="https://www.linkedin.com/in/johnnyowayed/" target="_blank" style="color: white;">LinkedIn</a>
+                        <a href="https://www.linkedin.com/in/johnnyowayed/" target="_blank">LinkedIn</a>
                     </div>
                 </div>
             </div>
