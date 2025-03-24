@@ -1,22 +1,4 @@
-/* Mobile menu styles */
-        #mainNav ul li {
-            margin: 10px 0;
-        }
-        
-        #mainNav ul li a {
-            display: block;
-            padding: 8px 20px;
-        }
-        
-        #mainNav.active ul {
-            display: flex;
-            animation: fadeIn 0.3s ease-in-out;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -69,7 +51,8 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            padding: 10px 0;
+            padding: 0;
+            height: auto;
         }
         
         .nav-container {
@@ -77,6 +60,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 10px 20px;
+            position: relative;
         }
         
         .logo {
@@ -84,6 +68,7 @@
             font-weight: 700;
             color: var(--primary-color);
             transition: color 0.3s ease;
+            padding-left: 0;
         }
         
         nav ul {
@@ -120,11 +105,28 @@
             width: 100%;
         }
         
+        /* Mobile menu toggle */
+        .mobile-menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 100;
+            padding: 8px;
+            background-color: transparent;
+            border: none;
+            color: var(--primary-color);
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            -webkit-tap-highlight-color: transparent;
+        }
+        
         /* Hero Section */
         .hero {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
-            padding: 80px 0;
+            padding: 60px 0 40px;
             position: relative;
         }
         
@@ -488,12 +490,6 @@
             gap: 30px;
         }
         
-        @media (max-width: 768px) {
-            .education-cert {
-                grid-template-columns: 1fr;
-            }
-        }
-        
         .edu-cert-card {
             background-color: white;
             border-radius: 10px;
@@ -600,6 +596,26 @@
             color: rgba(255, 255, 255, 0.7);
         }
         
+        /* Mobile menu styles */
+        #mainNav ul li {
+            margin: 10px 0;
+        }
+        
+        #mainNav ul li a {
+            display: block;
+            padding: 8px 20px;
+        }
+        
+        #mainNav.active ul {
+            display: flex;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
         /* Responsive */
         @media (max-width: 992px) {
             .contact-grid {
@@ -609,11 +625,11 @@
             .hero-container {
                 flex-direction: column-reverse;
                 text-align: center;
-                padding-top: 20px;
+                padding-top: 10px;
             }
             
             .hero-image {
-                margin-bottom: 20px;
+                margin-bottom: 10px;
             }
             
             .hero-content {
@@ -631,16 +647,38 @@
         }
         
         @media (max-width: 768px) {
-            .nav-container {
-                flex-direction: column;
-                text-align: center;
+            .education-cert {
+                grid-template-columns: 1fr;
             }
             
-            nav ul {
-                margin-top: 20px;
-                gap: 20px;
-                flex-wrap: wrap;
-                justify-content: center;
+            header {
+                height: auto;
+                padding: 0;
+            }
+            
+            .nav-container {
+                height: 60px;
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            #mainNav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                padding: 10px 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                z-index: 99;
+            }
+            
+            .hero {
+                padding: 40px 0 30px;
             }
             
             .hero h1 {
@@ -682,8 +720,9 @@
             }
             
             .hero-profile {
-                width: 180px;
-                height: 180px;
+                width: 150px;
+                height: 150px;
+                margin-bottom: 10px;
             }
         }
         
@@ -703,12 +742,6 @@
                 align-items: center;
             }
             
-            .hero-profile {
-                width: 150px;
-                height: 150px;
-            }
-            
-            /* Fix for contact info on very small screens */
             .contact-info {
                 width: 100%;
             }
@@ -716,47 +749,6 @@
             .contact-item {
                 width: 100%;
                 justify-content: center;
-            }
-        }
-        
-        /* Hamburger menu for mobile */
-        .mobile-menu-toggle {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            z-index: 100;
-            padding: 10px;
-            background-color: transparent;
-            border: none;
-            color: var(--primary-color);
-        }
-        
-        @media (max-width: 768px) {
-            .nav-container {
-                flex-direction: row;
-                justify-content: space-between;
-                align-items: center;
-            }
-            
-            .mobile-menu-toggle {
-                display: block;
-            }
-            
-            #mainNav ul {
-                display: none;
-                position: absolute;
-                top: 60px;
-                left: 0;
-                width: 100%;
-                background-color: white;
-                flex-direction: column;
-                padding: 20px 0;
-                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-                z-index: 99;
-            }
-            
-            #mainNav.active ul {
-                display: flex;
             }
         }
     </style>
@@ -767,6 +759,9 @@
         <div class="container">
             <div class="nav-container">
                 <div class="logo">Johnny Owayed</div>
+                <button class="mobile-menu-toggle" id="menuToggle" type="button" aria-label="Toggle menu" ontouchstart="">
+                    <i class="fas fa-bars"></i>
+                </button>
                 <nav id="mainNav">
                     <ul>
                         <li><a href="#about">About</a></li>
@@ -776,9 +771,6 @@
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </nav>
-                <button class="mobile-menu-toggle" id="menuToggle" type="button" aria-label="Toggle menu">
-                    <i class="fas fa-bars"></i>
-                </button>
             </div>
         </div>
     </header>
