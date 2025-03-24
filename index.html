@@ -51,14 +51,14 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            padding: 10px 0;
+            padding: 5px 0; /* Reduced padding */
         }
         
         .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 0;
+            padding: 5px 0; /* Reduced padding */
         }
         
         .logo {
@@ -106,7 +106,7 @@
         .hero {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
-            padding: 80px 0;
+            padding: 50px 0; /* Reduced padding */
             position: relative;
         }
         
@@ -114,7 +114,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 40px;
+            gap: 20px; /* Reduced gap */
         }
         
         .hero-content {
@@ -125,6 +125,7 @@
         .hero-image {
             flex: 0 0 250px;
             position: relative;
+            margin-bottom: 0; /* No bottom margin */
         }
         
         .hero-profile {
@@ -154,7 +155,7 @@
         .hero-buttons {
             display: flex;
             gap: 20px;
-            margin-bottom: 30px;
+            margin-bottom: 20px; /* Reduced margin */
         }
         
         .btn {
@@ -205,12 +206,12 @@
         
         /* About Section */
         .section {
-            padding: 80px 0;
+            padding: 60px 0; /* Reduced padding */
         }
         
         .section-title {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 40px; /* Reduced margin */
             font-size: 2.5rem;
             color: var(--dark-color);
         }
@@ -236,7 +237,7 @@
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            margin-bottom: 60px;
+            margin-bottom: 40px; /* Reduced margin */
         }
         
         .project-header {
@@ -581,6 +582,7 @@
             .hero-container {
                 flex-direction: column-reverse;
                 text-align: center;
+                gap: 10px; /* Reduced gap */
             }
             
             .hero-content {
@@ -594,30 +596,43 @@
             .contact-info {
                 justify-content: center;
             }
+            
+            .hero {
+                padding: 30px 0; /* Reduced padding */
+            }
         }
         
         @media (max-width: 768px) {
             .nav-container {
                 flex-direction: column;
                 text-align: center;
+                padding: 5px 0; /* Reduced padding */
             }
             
             nav ul {
-                margin-top: 20px;
-                gap: 20px;
+                margin-top: 10px; /* Reduced margin */
+                gap: 15px; /* Reduced gap */
+                flex-wrap: wrap; /* Allow wrapping */
+                justify-content: center; /* Center items */
+            }
+            
+            nav ul li {
+                margin: 0 5px; /* Add horizontal margin */
             }
             
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.2rem; /* Smaller font size */
+                margin-bottom: 15px; /* Reduced margin */
             }
             
             .hero p {
                 font-size: 1.2rem;
+                margin-bottom: 20px; /* Reduced margin */
             }
             
             .contact-info {
                 flex-direction: column;
-                gap: 15px;
+                gap: 10px; /* Reduced gap */
                 align-items: center;
             }
             
@@ -646,30 +661,77 @@
             }
             
             .hero-profile {
-                width: 180px;
-                height: 180px;
+                width: 150px; /* Smaller profile image */
+                height: 150px;
+                margin-bottom: 10px; /* Add small bottom margin */
+            }
+            
+            .hero-image {
+                margin-bottom: 0; /* No bottom margin */
+            }
+            
+            .section {
+                padding: 40px 0; /* Further reduced section padding */
+            }
+            
+            .section-title {
+                margin-bottom: 30px; /* Reduced margin */
+                font-size: 2.2rem; /* Smaller font */
+            }
+            
+            .hero-buttons {
+                margin-bottom: 15px; /* Reduced margin */
             }
         }
         
         @media (max-width: 576px) {
             nav ul {
-                flex-direction: column;
+                flex-direction: row; /* Keep as row */
                 align-items: center;
-                gap: 15px;
+                gap: 10px; /* Further reduced gap */
+                flex-wrap: wrap; /* Allow wrapping */
+                justify-content: center; /* Center items */
             }
             
             nav ul li {
-                margin-left: 0;
+                margin: 0 8px 8px 0; /* Add margins for spacing */
+            }
+            
+            nav ul li a {
+                font-size: 0.9rem; /* Smaller font size */
+                padding: 5px 8px; /* Add padding around links */
+                border-radius: 4px; /* Rounded corners */
+                background-color: rgba(0,0,0,0.03); /* Subtle background */
             }
             
             .hero-buttons {
                 flex-direction: column;
                 align-items: center;
+                gap: 10px; /* Reduced gap */
+            }
+            
+            .btn {
+                padding: 10px 25px; /* Smaller buttons */
+                font-size: 0.9rem; /* Smaller font */
+                width: 80%; /* Fixed width */
             }
             
             .hero-profile {
-                width: 150px;
-                height: 150px;
+                width: 120px; /* Even smaller profile */
+                height: 120px;
+                margin-bottom: 10px;
+            }
+            
+            .hero {
+                padding: 25px 0; /* Further reduced padding */
+            }
+            
+            .contact-item {
+                font-size: 0.9rem; /* Smaller font */
+            }
+            
+            .contact-info {
+                margin-top: 5px; /* Added small top margin */
             }
         }
     </style>
