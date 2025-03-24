@@ -700,16 +700,31 @@
             display: none;
             font-size: 1.5rem;
             cursor: pointer;
+            z-index: 100;
         }
         
         @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+            
             .mobile-menu-toggle {
                 display: block;
             }
             
             nav ul {
                 display: none;
+                position: absolute;
+                top: 60px;
+                left: 0;
                 width: 100%;
+                background-color: white;
+                flex-direction: column;
+                padding: 20px 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                z-index: 99;
             }
             
             nav.active ul {
@@ -723,6 +738,9 @@
     <header>
         <div class="container nav-container">
             <div class="logo">Johnny Owayed</div>
+            <div class="mobile-menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
             <nav id="mainNav">
                 <ul>
                     <li><a href="#about">About</a></li>
@@ -732,9 +750,6 @@
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
-            <div class="mobile-menu-toggle" id="menuToggle">
-                <i class="fas fa-bars"></i>
-            </div>
         </div>
     </header>
 
