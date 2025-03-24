@@ -1,4 +1,22 @@
-<!DOCTYPE html>
+/* Mobile menu styles */
+        #mainNav ul li {
+            margin: 10px 0;
+        }
+        
+        #mainNav ul li a {
+            display: block;
+            padding: 8px 20px;
+        }
+        
+        #mainNav.active ul {
+            display: flex;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -58,7 +76,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 0;
+            padding: 10px 20px;
         }
         
         .logo {
@@ -115,6 +133,7 @@
             align-items: center;
             justify-content: space-between;
             gap: 40px;
+            padding: 0 20px;
         }
         
         .hero-content {
@@ -590,6 +609,11 @@
             .hero-container {
                 flex-direction: column-reverse;
                 text-align: center;
+                padding-top: 20px;
+            }
+            
+            .hero-image {
+                margin-bottom: 20px;
             }
             
             .hero-content {
@@ -740,20 +764,22 @@
 <body>
     <!-- Header -->
     <header>
-        <div class="container nav-container">
-            <div class="logo">Johnny Owayed</div>
-            <button class="mobile-menu-toggle" id="menuToggle" type="button" aria-label="Toggle menu">
-                <i class="fas fa-bars"></i>
-            </button>
-            <nav id="mainNav">
-                <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
+        <div class="container">
+            <div class="nav-container">
+                <div class="logo">Johnny Owayed</div>
+                <nav id="mainNav">
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#experience">Experience</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+                <button class="mobile-menu-toggle" id="menuToggle" type="button" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
         </div>
     </header>
 
