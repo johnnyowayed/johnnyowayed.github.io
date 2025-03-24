@@ -51,16 +51,14 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            padding: 0;
-            height: auto;
+            padding: 10px 0;
         }
         
         .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 20px;
-            position: relative;
+            padding: 10px 0;
         }
         
         .logo {
@@ -68,7 +66,6 @@
             font-weight: 700;
             color: var(--primary-color);
             transition: color 0.3s ease;
-            padding-left: 0;
         }
         
         nav ul {
@@ -105,28 +102,11 @@
             width: 100%;
         }
         
-        /* Mobile menu toggle */
-        .mobile-menu-toggle {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            z-index: 100;
-            padding: 8px;
-            background-color: transparent;
-            border: none;
-            color: var(--primary-color);
-            position: absolute;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            -webkit-tap-highlight-color: transparent;
-        }
-        
         /* Hero Section */
         .hero {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
-            padding: 60px 0 40px;
+            padding: 80px 0;
             position: relative;
         }
         
@@ -135,7 +115,6 @@
             align-items: center;
             justify-content: space-between;
             gap: 40px;
-            padding: 0 20px;
         }
         
         .hero-content {
@@ -222,15 +201,6 @@
         
         .contact-item i {
             margin-right: 10px;
-        }
-        
-        .contact-item a {
-            color: white;
-            text-decoration: none;
-        }
-        
-        .contact-item a:hover {
-            text-decoration: underline;
         }
         
         /* About Section */
@@ -490,6 +460,12 @@
             gap: 30px;
         }
         
+        @media (max-width: 768px) {
+            .education-cert {
+                grid-template-columns: 1fr;
+            }
+        }
+        
         .edu-cert-card {
             background-color: white;
             border-radius: 10px;
@@ -596,26 +572,6 @@
             color: rgba(255, 255, 255, 0.7);
         }
         
-        /* Mobile menu styles */
-        #mainNav ul li {
-            margin: 10px 0;
-        }
-        
-        #mainNav ul li a {
-            display: block;
-            padding: 8px 20px;
-        }
-        
-        #mainNav.active ul {
-            display: flex;
-            animation: fadeIn 0.3s ease-in-out;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
         /* Responsive */
         @media (max-width: 992px) {
             .contact-grid {
@@ -625,11 +581,6 @@
             .hero-container {
                 flex-direction: column-reverse;
                 text-align: center;
-                padding-top: 10px;
-            }
-            
-            .hero-image {
-                margin-bottom: 10px;
             }
             
             .hero-content {
@@ -642,43 +593,18 @@
             
             .contact-info {
                 justify-content: center;
-                flex-wrap: wrap;
             }
         }
         
         @media (max-width: 768px) {
-            .education-cert {
-                grid-template-columns: 1fr;
-            }
-            
-            header {
-                height: auto;
-                padding: 0;
-            }
-            
             .nav-container {
-                height: 60px;
-            }
-            
-            .mobile-menu-toggle {
-                display: block;
-            }
-            
-            #mainNav ul {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background-color: white;
                 flex-direction: column;
-                padding: 10px 0;
-                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-                z-index: 99;
+                text-align: center;
             }
             
-            .hero {
-                padding: 40px 0 30px;
+            nav ul {
+                margin-top: 20px;
+                gap: 20px;
             }
             
             .hero h1 {
@@ -720,9 +646,8 @@
             }
             
             .hero-profile {
-                width: 150px;
-                height: 150px;
-                margin-bottom: 10px;
+                width: 180px;
+                height: 180px;
             }
         }
         
@@ -742,13 +667,9 @@
                 align-items: center;
             }
             
-            .contact-info {
-                width: 100%;
-            }
-            
-            .contact-item {
-                width: 100%;
-                justify-content: center;
+            .hero-profile {
+                width: 150px;
+                height: 150px;
             }
         }
     </style>
@@ -756,22 +677,17 @@
 <body>
     <!-- Header -->
     <header>
-        <div class="container">
-            <div class="nav-container">
-                <div class="logo">Johnny Owayed</div>
-                <button class="mobile-menu-toggle" id="menuToggle" type="button" aria-label="Toggle menu" ontouchstart="">
-                    <i class="fas fa-bars"></i>
-                </button>
-                <nav id="mainNav">
-                    <ul>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#projects">Projects</a></li>
-                        <li><a href="#skills">Skills</a></li>
-                        <li><a href="#experience">Experience</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </nav>
-            </div>
+        <div class="container nav-container">
+            <div class="logo">Johnny Owayed</div>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
@@ -788,15 +704,15 @@
                 <div class="contact-info">
                     <div class="contact-item">
                         <i class="fas fa-phone"></i>
-                        <a href="tel:+96171213231">+961 71 213 231</a>
+                        <span>+961 71 213 231</span>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
-                        <a href="mailto:johnny.owayed@gmail.com">johnny.owayed@gmail.com</a>
+                        <span>johnny.owayed@gmail.com</span>
                     </div>
                     <div class="contact-item">
                         <i class="fab fa-linkedin"></i>
-                        <a href="https://www.linkedin.com/in/johnnyowayed/" target="_blank">LinkedIn</a>
+                        <a href="https://www.linkedin.com/in/johnnyowayed/" target="_blank" style="color: white;">LinkedIn</a>
                     </div>
                 </div>
             </div>
