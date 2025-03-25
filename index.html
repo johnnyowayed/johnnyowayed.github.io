@@ -69,7 +69,7 @@
         }
         
         /* Mobile menu button */
-        .mobile-menu-btn {
+         .mobile-menu-btn {
             display: none;
             background: none;
             border: none;
@@ -78,6 +78,17 @@
             cursor: pointer;
             padding: 5px 10px;
             z-index: 100;
+        }
+
+        .menu-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 98;
         }
         
         nav ul {
@@ -620,37 +631,29 @@
         }
         
         @media (max-width: 768px) {
-            .nav-container {
-                flex-direction: row; /* Keep as row for logo and hamburger menu */
-                justify-content: space-between;
-                padding: 10px 0; /* Adjusted padding */
-            }
-            
             .mobile-menu-btn {
-                display: block; /* Show mobile menu button */
-                order: -1; /* Move to the left */
-            }
-            
-            .logo {
-                padding-right: 30px; /* Add padding to the right of the name */
+                display: block;
             }
             
             nav {
-                position: absolute;
+                position: fixed;
                 top: 0;
-                right: 0;
+                right: -280px; /* Start off-screen */
                 background-color: white;
                 width: 250px;
                 height: 100vh;
                 padding: 80px 20px 20px;
-                transform: translateX(100%);
-                transition: transform 0.3s ease;
+                transition: right 0.3s ease;
                 box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
                 z-index: 99;
             }
             
             nav.active {
-                transform: translateX(0);
+                right: 0;
+            }
+            
+            .menu-overlay.active {
+                display: block;
             }
             
             nav ul {
@@ -661,71 +664,25 @@
             }
             
             nav ul li {
-                margin: 0 5px; /* Add horizontal margin */
-            }
-            
-            .hero h1 {
-                font-size: 2.2rem; /* Smaller font size */
-                margin-bottom: 15px; /* Reduced margin */
-            }
-            
-            .hero p {
-                font-size: 1.2rem;
-                margin-bottom: 20px; /* Reduced margin */
-            }
-            
-            .contact-info {
-                flex-direction: column;
-                gap: 10px; /* Reduced gap */
-                align-items: center;
-            }
-            
-            .timeline::after {
-                left: 31px;
-            }
-            
-            .timeline-item {
+                margin: 0;
                 width: 100%;
-                padding-left: 70px;
-                padding-right: 25px;
             }
             
-            .timeline-item:nth-child(even) {
-                left: 0;
+            nav ul li a {
+                display: block;
+                padding: 10px 15px;
+                border-radius: 4px;
+                background-color: rgba(0, 0, 0, 0.03);
+                transition: all 0.3s ease;
             }
             
-            .timeline-item:nth-child(odd)::after, 
-            .timeline-item:nth-child(even)::after {
-                left: 21px;
+            nav ul li a:hover {
+                background-color: var(--primary-color);
+                color: white;
             }
             
-            .screenshot {
-                min-width: 200px;
-                height: 400px;
-            }
-            
-            .hero-profile {
-                width: 150px; /* Smaller profile image */
-                height: 150px;
-                margin-bottom: 0; /* No bottom margin */
-            }
-            
-            .hero-image {
-                margin-bottom: 0;
-                padding-bottom: 0;
-            }
-            
-            .section {
-                padding: 40px 0; /* Further reduced section padding */
-            }
-            
-            .section-title {
-                margin-bottom: 30px; /* Reduced margin */
-                font-size: 2.2rem; /* Smaller font */
-            }
-            
-            .hero-buttons {
-                margin-bottom: 15px; /* Reduced margin */
+            nav ul li a:hover:after {
+                width: 0; /* Remove underline animation on mobile */
             }
         }
         
@@ -793,7 +750,11 @@
     <!-- Header -->
     <header>
         <div class="container nav-container">
+            <button class="mobile-menu-btn" aria-label="Toggle navigation menu">
+                <i class="fas fa-bars"></i>
+            </button>
             <div class="logo">Johnny Owayed</div>
+            <div class="menu-overlay"></div>
             <nav>
                 <ul>
                     <li><a href="#about">About</a></li>
@@ -1328,7 +1289,29 @@
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth'
                 });
+                
+                // Close menu when link is clicked on mobile
+                if (window.innerWidth <= 768) {
+                    document.querySelector('nav').classList.remove('active');
+                    document.querySelector('.menu-overlay').classList.remove('active');
+                }
             });
+        });
+        
+        // Mobile menu toggle
+        const menuBtn = document.querySelector('.mobile-menu-btn');
+        const nav = document.querySelector('nav');
+        const overlay = document.querySelector('.menu-overlay');
+        
+        menuBtn.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            overlay.classList.toggle('active');
+        });
+        
+        // Close menu when clicking outside
+        overlay.addEventListener('click', () => {
+            nav.classList.remove('active');
+            overlay.classList.remove('active');
         });
     </script>
 </body>
