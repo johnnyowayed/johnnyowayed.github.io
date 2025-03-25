@@ -604,6 +604,8 @@
         
         /* Responsive */
         @media (max-width: 992px) {
+
+            
             .contact-grid {
                 grid-template-columns: 1fr;
             }
@@ -615,8 +617,8 @@
             }
             
             .hero-content {
-                text-align: center;
-                margin-top: -10px; /* Negative margin to pull content up */
+/*                 text-align: center; */
+                margin-top: 0; /* Negative margin to pull content up */
             }
             
             .hero-buttons {
@@ -624,7 +626,17 @@
             }
             
             .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px; /* Reduced gap between items */
+                width: 100%; /* Ensure full width */
+                margin-top: 15px;flex-direction: column;
+            }
+
+            .contact-item {
+                width: 100%;
                 justify-content: center;
+                margin-bottom: 5px;
             }
             
             .hero {
