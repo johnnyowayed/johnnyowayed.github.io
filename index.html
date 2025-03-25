@@ -66,6 +66,7 @@
             font-weight: 700;
             color: var(--primary-color);
             transition: color 0.3s ease;
+            padding-left: 10px;
         }
         
         /* Mobile menu button */
@@ -730,7 +731,7 @@
             }
             
             .hero-content {
-                margin-top: -15px; /* Further reduce space between image and text */
+                margin-top: 0; /* Further reduce space between image and text */
             }
             
             .hero {
@@ -738,7 +739,9 @@
             }
             
             .contact-item {
-                font-size: 0.9rem; /* Smaller font */
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
             }
             
             .contact-info {
