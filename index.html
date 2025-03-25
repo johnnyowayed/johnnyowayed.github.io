@@ -610,31 +610,62 @@
         text-align: center;
     }
     
+    /* Order elements properly */
+    .hero-container {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .hero-image {
+        order: 1; /* Put image first */
+        margin-bottom: 15px; /* Add space below image */
+    }
+    
+    .hero-content {
+        order: 2; /* Put content second */
+        margin-top: 0; /* No additional top margin needed */
+        text-align: center;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    /* Ensure proper ordering within content */
+    .hero h1 {
+        margin-top: 0;
+        margin-bottom: 10px;
+        order: 1; /* Name first */
+    }
+    
+    .hero p {
+        margin-bottom: 15px;
+        order: 2; /* Title second */
+    }
+    
+    .hero-buttons {
+        justify-content: center;
+        order: 3; /* Buttons third */
+        margin-bottom: 15px;
+    }
+    
     .contact-info {
         flex-direction: column;
         align-items: center;
-        gap: 10px; /* Reduced gap between items */
-        width: 100%; /* Ensure full width */
-        margin-top: 15px; /* Add space above contact info */
-    }
-    
-    /* Additional adjustment to ensure better spacing */
-    .hero-content {
-        margin-top: 10px; /* Add space between image and content */
-        text-align: center;
+        gap: 10px;
         width: 100%;
+        order: 4; /* Contact info last */
     }
     
-    /* Make each contact item take full width but keep icon and text inline */
+    /* Keep icons and text inline for contact items */
     .contact-item {
         width: 100%;
         justify-content: center;
         margin-bottom: 8px;
         display: flex;
+        flex-direction: row; /* Ensure horizontal layout */
         align-items: center;
     }
     
-    /* Keep icon and text properly aligned */
     .contact-item i {
         margin-right: 10px;
         display: inline-block;
@@ -645,26 +676,7 @@
         display: inline-block;
     }
     
-    /* Adjust hero image */
-    .hero-image {
-        margin-bottom: 15px; /* Add space below image */
-    }
-    
-    .hero h1 {
-        margin-top: 0; /* No top margin needed */
-        margin-bottom: 10px; /* Reduced bottom margin */
-    }
-    
-    .hero p {
-        margin-bottom: 15px; /* Reduced margin for job title */
-    }
-    
-    /* Center buttons */
-    .hero-buttons {
-        justify-content: center;
-    }
-    
-    /* Reduce size of profile image on mobile for better proportions */
+    /* Reduce size of profile image for better proportions */
     .hero-profile {
         width: 180px;
         height: 180px;
@@ -792,23 +804,23 @@
         padding: 25px 0; /* Further reduced padding */
     }
     
-    /* Stack contact items fully vertical */
+    /* Keep contact items horizontal (icon next to text) */
     .contact-item {
-        flex-direction: column;
+        flex-direction: row; /* Enforce horizontal layout */
         align-items: center;
-        text-align: center;
-        margin-bottom: 12px;
+        justify-content: center;
+        text-align: left;
+        margin-bottom: 10px;
     }
     
     .contact-item i {
-        margin-right: 0;
-        margin-bottom: 5px;
-        font-size: 1.2rem;
+        margin-right: 10px; /* Keep icon to the left of text */
+        font-size: 1.1rem;
     }
     
     .contact-info {
         margin-top: 15px;
-        gap: 0;
+        gap: 5px;
     }
 }
     </style>
