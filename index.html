@@ -602,7 +602,6 @@
             color: rgba(255, 255, 255, 0.7);
         }
         
-        /* Responsive */
     @media (max-width: 992px) {
     /* Make hero section a column layout */
     .hero-container {
@@ -618,7 +617,7 @@
     
     .hero-image {
         order: 1; /* Put image first */
-        margin-bottom: 15px; /* Add space below image */
+        margin-bottom: 5px; /* Reduced space below image */
     }
     
     .hero-content {
@@ -633,12 +632,12 @@
     /* Ensure proper ordering within content */
     .hero h1 {
         margin-top: 0;
-        margin-bottom: 10px;
+        margin-bottom: 5px; /* Reduced margin */
         order: 1; /* Name first */
     }
     
     .hero p {
-        margin-bottom: 15px;
+        margin-bottom: 10px; /* Reduced margin */
         order: 2; /* Title second */
     }
     
@@ -744,12 +743,19 @@
         height: 150px;
     }
     
+    /* Reduce spacing between image and name */
+    .hero-image {
+        margin-bottom: 0; /* No space below image */
+    }
+    
     .hero h1 {
         font-size: 2.4rem; /* Slightly smaller font size */
+        margin-top: 0; /* No top margin */
     }
     
     .hero p {
         font-size: 1.3rem; /* Smaller job title font */
+        margin-top: 0; /* No top margin */
     }
     
     .hero {
@@ -800,8 +806,22 @@
         height: 120px;
     }
     
+    /* Further reduce spacing */
+    .hero-image {
+        margin-bottom: 0; /* No space below image */
+    }
+    
+    .hero h1 {
+        margin-top: 0;
+        margin-bottom: 3px; /* Minimal margin */
+    }
+    
+    .hero p {
+        margin-bottom: 8px; /* Minimal margin */
+    }
+    
     .hero {
-        padding: 25px 0; /* Further reduced padding */
+        padding: 20px 0; /* Further reduced padding */
     }
     
     /* Keep contact items horizontal (icon next to text) */
@@ -810,7 +830,7 @@
         align-items: center;
         justify-content: center;
         text-align: left;
-        margin-bottom: 10px;
+        margin-bottom: 8px;
     }
     
     .contact-item i {
@@ -819,7 +839,7 @@
     }
     
     .contact-info {
-        margin-top: 15px;
+        margin-top: 10px;
         gap: 5px;
     }
 }
