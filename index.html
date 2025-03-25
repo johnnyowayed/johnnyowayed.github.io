@@ -617,17 +617,17 @@
     
     .hero-image {
         order: 1; /* Put image first */
-        margin-bottom: 0; /* No space below image */
+        margin-bottom: -100px; /* Large negative margin to pull name up */
     }
     
     .hero-content {
         order: 2; /* Put content second */
-        margin-top: -60px; /* Large negative margin to pull content up */
+        margin-top: 0; /* Reset margin */
         text-align: center;
         width: 100%;
         display: flex;
         flex-direction: column;
-        padding-top: 70px; /* Add padding to create space for image overflow */
+        padding-top: 100px; /* Add padding to create space for image */
     }
     
     /* Ensure proper ordering within content */
@@ -749,9 +749,12 @@
     }
     
     /* Further reduce space between image and content */
+    .hero-image {
+        margin-bottom: -80px; /* Adjusted for smaller image size */
+    }
+    
     .hero-content {
-        margin-top: -70px; /* More aggressive negative margin */
-        padding-top: 80px; /* Add more padding to prevent overlap */
+        padding-top: 80px; /* Match the negative margin */
     }
     
     .hero h1 {
@@ -813,9 +816,12 @@
     }
     
     /* Extreme reduction of space between image and name */
+    .hero-image {
+        margin-bottom: -65px; /* Adjusted for smallest image size */
+    }
+    
     .hero-content {
-        margin-top: -80px; /* Extremely aggressive negative margin */
-        padding-top: 90px; /* Compensate with padding to prevent overlap */
+        padding-top: 65px; /* Match the negative margin */
     }
     
     .hero h1 {
