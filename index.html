@@ -709,6 +709,31 @@
     nav.active {
         right: 0;
     }
+
+    .timeline::after {
+        left: 31px; /* Move timeline line to the left side */
+    }
+    
+    .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+    }
+    
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+        left: 0;
+    }
+    
+    .timeline-item:nth-child(odd)::after,
+    .timeline-item:nth-child(even)::after {
+        left: 21px; /* Align all timeline dots to the left */
+    }
+    
+    .timeline-content {
+        width: 100%;
+        text-align: left;
+    }
     
     .menu-overlay.active {
         display: block;
